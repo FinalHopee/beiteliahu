@@ -6,18 +6,65 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+//TESTER
+    //TODO Delete this line
+    private RecyclerView recyclerView;
+  //  private PostsAdapter adapter;
+  //  private List<Post> postList;
 
+    private void initRecyclerView() {
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(createItemList());
+        recyclerView.setAdapter(recyclerAdapter);
+    }
+
+    private List<String> createItemList() {
+        List<String> itemList = new ArrayList<>();
+        for(int i=0;i<20;i++) {
+            itemList.add("Item "+i);
+        }
+        return itemList;
+    }
+
+
+//*****************************************************************************
+//*****************************************************************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //TESTER
+        //TODO Delete this line
+        initRecyclerView();
+  //      recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+   //     postList = new ArrayList<>();
+   //     adapter = new PostsAdapter (this, postList);
+
+   //     RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+   //     recyclerView.setLayoutManager(mLayoutManager);
+   //     recyclerView.addItemDecoration(new GridSpacingItemDecoration);
+   //     recyclerView.setItemAnimator(new DefaultItemAnimator());
+    //    recyclerView.setAdapter(adapter);
+
+
+
+//*****************************************************************************
+//*****************************************************************************
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

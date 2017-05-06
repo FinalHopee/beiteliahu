@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 //TESTER
     //TODO Delete this line
+    //sources
+    //https://mzgreen.github.io/2015/06/23/How-to-hideshow-Toolbar-when-list-is-scrolling%28part3%29/
+    //http://www.androidhive.info/2016/05/android-working-with-card-view-and-recycler-view/
+    //https://blog.stylingandroid.com/material-part-4/
+    //
     private RecyclerView recyclerView;
     private ImageView mLogoPicture,mBackgroundPicture;
     private Bitmap mBitLogo, mBitBackground;
